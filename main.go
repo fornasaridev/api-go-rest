@@ -8,11 +8,11 @@ import (
 
 func main() {
 	models.Personalidades = []models.Personalidade{
-		models.Personalidade{Nome: "Albert Einstein", Historia: "Físico alemão"},
-		models.Personalidade{Nome: "Isaac Newton", Historia: "Físico e matemático inglês"},
-		models.Personalidade{Nome: "Galileu Galilei", Historia: "Físico e astrônomo italiano"},
+		{Id: 1, Nome: "Albert Einstein", Historia: "Físico alemão"},
+		{Id: 2, Nome: "Isaac Newton", Historia: "Físico e matemático inglês"},
+		{Id: 3, Nome: "Galileu Galilei", Historia: "Físico e astrônomo italiano"},
 	}
 
 	fmt.Println("Iniciando o servidor rest com go")
-	routes.HandleRequests()
+	routes.HandleResquest()
 }
