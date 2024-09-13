@@ -15,6 +15,8 @@ func Home(w http.ResponseWriter, r *http.Request) {
 }
 
 func TodasPersonalidades(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Type", "application/json")
 	var p []models.Personalidade
 	database.DB.Find(&p)
 	json.NewEncoder(w).Encode(p)
@@ -50,6 +52,6 @@ func EditarPersonalidade(w http.ResponseWriter, r *http.Request) {
 	var p models.Personalidade
 	database.DB.First(&p, id)
 	json.NewDecoder(r.Body).Decode(&p)
-	database.DB.Save(&p)
+	database.DB.Model(&p).Updates(p)
 	json.NewEncoder(w).Encode(p)
 }
